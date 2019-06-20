@@ -1,9 +1,10 @@
 #!/bin/sh
 
-echo "this is outer container"
+echo "this is the outer container"
+mkdir -p $SOURCE_PATH
 echo $SOURCE_PATH
 ls $SOURCE_PATH
-echo "this is inner container"
+echo "this is the inner container"
 docker run \
   --mount type=bind,source=$SOURCE_PATH,destination=/root \
   --entrypoint "/bin/ls" \

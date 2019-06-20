@@ -6,26 +6,16 @@ workflow "Run Docker in Docker" {
 }
 
 action "works" {
-  uses = "actions/docker/cli@master"
+  uses = "./"
   env = {
     SOURCE_PATH = "/usr/local"
   }
-  runs = [
-    "sh",
-    "-c",
-    "$GITHUB_WORKSPACE/script.sh"
-  ]
 }
 
 action "fails" {
-  uses = "actions/docker/cli@master"
+  uses = "./"
   env = {
     SOURCE_PATH = "/github/workspace"
   }
-  runs = [
-    "sh",
-    "-c",
-    "$GITHUB_WORKSPACE/script.sh"
-  ]
   needs = "works"
 }
