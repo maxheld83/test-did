@@ -8,7 +8,7 @@ workflow "Run Docker in Docker" {
 action "works" {
   uses = "actions/docker/cli@master"
   env = {
-    SOURCE_PATH = "/usr/bin"
+    SOURCE_PATH = "/usr/local"
   }
   runs = [
     "sh",
